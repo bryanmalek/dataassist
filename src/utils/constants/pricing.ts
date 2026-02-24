@@ -1,200 +1,67 @@
-// export const PLANS = [
-//     {
-//         name: "Free",
-//         info: "For most individuals",
-//         price: {
-//             monthly: 0,
-//             yearly: 0,
-//         },
-//         features: [
-//             { text: "Shorten links" },
-//             { text: "Up to 100 tags", limit: "100 tags" },
-//             { text: "Customizable branded links" },
-//             { text: "Track clicks", tooltip: "1K clicks/month" },
-//             { text: "Community support", tooltip: "Get answers your questions on discord" },
-//             { text: "AI powered suggestions", tooltip: "Get up to 100 AI powered suggestions" },
-//         ],
-//         btn: {
-//             text: "Start for free",
-//             href: "/auth/sign-up?plan=free",
-//             variant: "default",
-//         }
-//     },
-//     {
-//         name: "Pro",
-//         info: "For small businesses",
-//         price: {
-//             monthly: 9,
-//             yearly: 90,
-//         },
-//         features: [
-//             { text: "Shorten links" },
-//             { text: "Up to 500 tags", limit: "500 tags" },
-//             { text: "Customizable branded links" },
-//             { text: "Track clicks", tooltip: "20K clicks/month" },
-//             { text: "Export click data", tooltip: "Upto 1K links" },
-//             { text: "Priority support", tooltip: "Get 24/7 chat support" },
-//             { text: "AI powered suggestions", tooltip: "Get up to 500 AI powered suggestions" },
-//         ],
-//         btn: {
-//             text: "Get started",
-//             href: "/auth/sign-up?plan=pro",
-//             variant: "purple",
-//         }
-//     },
-//     {
-//         name: "Business",
-//         info: "For large organizations",
-//         price: {
-//             monthly: 49,
-//             yearly: 490,
-//         },
-//         features: [
-//             { text: "Shorten links" },
-//             { text: "Unlimited tags" },
-//             { text: "Customizable branded links"},
-//             { text: "Track clicks", tooltip: "Unlimited clicks" },
-//             { text: "Export click data", tooltip: "Unlimited clicks" },
-//             { text: "Dedicated manager", tooltip: "Get priority support from our team" },
-//             { text: "AI powered suggestions", tooltip: "Get unlimited AI powered suggestions" },
-//         ],
-//         btn: {
-//             text: "Contact team",
-//             href: "/auth/sign-up?plan=business",
-//             variant: "default",
-//         }
-//     }
-// ];
+type LangString = { es: string; en: string };
 
-// export const PRICING_FEATURES = [
-//     {
-//         text: "Shorten links",
-//         tooltip: "Create shortened links",
-//     },
-//     {
-//         text: "Track clicks",
-//         tooltip: "Track clicks on your links",
-//     },
-//     {
-//         text: "See top countries",
-//         tooltip: "See top countries where your links are clicked",
-//     },
-//     {
-//         text: "Upto 10 tags",
-//         tooltip: "Add upto 10 tags to your links",
-//     },
-//     {
-//         text: "Community support",
-//         tooltip: "Community support is available for free users",
-//     },
-//     {
-//         text: "Priority support",
-//         tooltip: "Get priority support from our team",
-//     },
-//     {
-//         text: "AI powered suggestions",
-//         tooltip: "Get AI powered suggestions for your links",
-//     },
-// ];
-
-// export const WORKSPACE_LIMIT = 2;
 export const PLANS = [
     {
-        name: "Free",
-        info: "For most individuals",
+        name: "Personal",
+        info: { es: "Para individuos y familias", en: "For individuals and families" } as LangString,
         price: {
             monthly: 0,
             yearly: 0,
         },
         features: [
-            { text: "Shorten links" },
-            { text: "Up to 100 tags", limit: "100 tags" },
-            { text: "Customizable branded links" },
-            { text: "Track clicks", tooltip: "1K clicks/month" },
-            { text: "Community support", tooltip: "Get answers your questions on discord" },
-            { text: "AI powered suggestions", tooltip: "Get up to 100 AI powered suggestions" },
+            { text: { es: "Monitorea 1 correo electrónico", en: "Monitor 1 email address" } as LangString },
+            { text: { es: "Escaneo dark web básico", en: "Basic dark web scan" } as LangString },
+            { text: { es: "Alertas por email", en: "Email alerts" } as LangString },
+            { text: { es: "Score de seguridad", en: "Security score quiz" } as LangString },
         ],
         btn: {
-            text: "Start for free",
-            href: "/auth/sign-up?plan=free",
+            text: { es: "Comenzar Gratis", en: "Start for Free" } as LangString,
+            href: "/#contact",
             variant: "default",
-        }
+        },
+        featured: false,
     },
     {
         name: "Pro",
-        info: "For small businesses",
+        info: { es: "Para usuarios con mayor exposición", en: "For users with greater exposure" } as LangString,
         price: {
-            monthly: 9,
-            yearly: Math.round(9 * 12 * (1 - 0.12)),
+            monthly: 9.99,
+            yearly: Math.round(9.99 * 12 * 0.85),
         },
         features: [
-            { text: "Shorten links" },
-            { text: "Up to 500 tags", limit: "500 tags" },
-            { text: "Customizable branded links" },
-            { text: "Track clicks", tooltip: "20K clicks/month" },
-            { text: "Export click data", tooltip: "Upto 1K links" },
-            { text: "Priority support", tooltip: "Get 24/7 chat support" },
-            { text: "AI powered suggestions", tooltip: "Get up to 500 AI powered suggestions" },
+            { text: { es: "Monitorea 5 correos + 2 documentos", en: "Monitor 5 emails + 2 documents" } as LangString },
+            { text: { es: "Monitoreo continuo 24/7", en: "24/7 continuous monitoring" } as LangString },
+            { text: { es: "Alertas por WhatsApp y email", en: "WhatsApp and email alerts" } as LangString, tooltip: { es: "Notificaciones instantáneas", en: "Instant notifications" } as LangString },
+            { text: { es: "Reportes mensuales", en: "Monthly reports" } as LangString },
+            { text: { es: "Soporte prioritario", en: "Priority support" } as LangString },
         ],
         btn: {
-            text: "Get started",
-            href: "/auth/sign-up?plan=pro",
+            text: { es: "Obtener Protección", en: "Get Protection" } as LangString,
+            href: "/#contact",
             variant: "purple",
-        }
+        },
+        featured: true,
     },
     {
         name: "Business",
-        info: "For large organizations",
+        info: { es: "Para bancos y organizaciones", en: "For banks and organizations" } as LangString,
         price: {
             monthly: 49,
-            yearly: Math.round(49 * 12 * (1 - 0.12)),
+            yearly: Math.round(49 * 12 * 0.85),
         },
         features: [
-            { text: "Shorten links" },
-            { text: "Unlimited tags" },
-            { text: "Customizable branded links" },
-            { text: "Track clicks", tooltip: "Unlimited clicks" },
-            { text: "Export click data", tooltip: "Unlimited clicks" },
-            { text: "Dedicated manager", tooltip: "Get priority support from our team" },
-            { text: "AI powered suggestions", tooltip: "Get unlimited AI powered suggestions" },
+            { text: { es: "Monitoreo ilimitado", en: "Unlimited monitoring" } as LangString },
+            { text: { es: "API de integración", en: "Integration API" } as LangString },
+            { text: { es: "Opción white-label", en: "White-label option" } as LangString },
+            { text: { es: "Gerente dedicado", en: "Dedicated manager" } as LangString },
+            { text: { es: "Integraciones personalizadas", en: "Custom integrations" } as LangString },
+            { text: { es: "SLA garantizado", en: "Guaranteed SLA" } as LangString },
         ],
         btn: {
-            text: "Contact team",
-            href: "/auth/sign-up?plan=business",
+            text: { es: "Contactar Equipo", en: "Contact Team" } as LangString,
+            href: "/#contact",
             variant: "default",
-        }
-    }
-];
-
-export const PRICING_FEATURES = [
-    {
-        text: "Shorten links",
-        tooltip: "Create shortened links",
-    },
-    {
-        text: "Track clicks",
-        tooltip: "Track clicks on your links",
-    },
-    {
-        text: "See top countries",
-        tooltip: "See top countries where your links are clicked",
-    },
-    {
-        text: "Upto 10 tags",
-        tooltip: "Add upto 10 tags to your links",
-    },
-    {
-        text: "Community support",
-        tooltip: "Community support is available for free users",
-    },
-    {
-        text: "Priority support",
-        tooltip: "Get priority support from our team",
-    },
-    {
-        text: "AI powered suggestions",
-        tooltip: "Get AI powered suggestions for your links",
+        },
+        featured: false,
     },
 ];
-
-export const WORKSPACE_LIMIT = 2;

@@ -1,6 +1,7 @@
 "use client";
 
 import { buttonVariants } from "@/components/ui/button";
+import LanguageToggle from "@/components/ui/language-toggle";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -10,8 +11,10 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { useLanguage } from "@/hooks/use-language";
 import { cn, NAV_LINKS } from "@/utils";
-import { LucideIcon, ZapIcon } from "lucide-react";
+import { translations } from "@/utils/constants/translations";
+import { LucideIcon, ShieldCheckIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from 'react';
 import MaxWidthWrapper from "../global/max-width-wrapper";
@@ -19,6 +22,8 @@ import MobileNavbar from "./mobile-navbar";
 import AnimationContainer from "../global/animation-container";
 
 const Navbar = () => {
+    const { language } = useLanguage();
+    const t = translations[language].nav;
 
     const [scroll, setScroll] = useState(false);
 
@@ -46,58 +51,71 @@ const Navbar = () => {
                 <MaxWidthWrapper className="flex items-center justify-between">
                     <div className="flex items-center space-x-12">
                         <Link href="/#home">
-                            <span className="text-lg font-bold font-heading !leading-none">
-                                Linkify
+                            <span className="text-lg font-bold font-heading !leading-none flex items-center gap-2">
+                                <ShieldCheckIcon className="w-5 h-5 text-violet-500" />
+                                DataAssist
                             </span>
                         </Link>
 
                         <NavigationMenu className="hidden lg:flex">
                             <NavigationMenuList>
                                 {NAV_LINKS.map((link) => (
-                                    <NavigationMenuItem key={link.title}>
+                                    <NavigationMenuItem key={link.titleKey}>
                                         {link.menu ? (
                                             <>
-                                                <NavigationMenuTrigger>{link.title}</NavigationMenuTrigger>
+                                                <NavigationMenuTrigger>
+                                                    {link.titleKey === "features" ? t.features
+                                                        : link.titleKey === "blog" ? t.blog
+                                                            : t.faq}
+                                                </NavigationMenuTrigger>
                                                 <NavigationMenuContent>
                                                     <ul className={cn(
                                                         "grid gap-1 p-4 md:w-[400px] lg:w-[500px] rounded-xl",
-                                                        link.title === "Features" ? "lg:grid-cols-[.75fr_1fr]" : "lg:grid-cols-2"
+                                                        link.titleKey === "features" ? "lg:grid-cols-[.75fr_1fr]" : "lg:grid-cols-1"
                                                     )}>
-                                                        {link.title === "Features" && (
+                                                        {link.titleKey === "features" && (
                                                             <li className="row-span-4 pr-2 relative rounded-lg overflow-hidden">
                                                                 <div className="absolute inset-0 !z-10 h-full w-[calc(100%-10px)] bg-[linear-gradient(to_right,rgb(38,38,38,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgb(38,38,38,0.5)_1px,transparent_1px)] bg-[size:1rem_1rem]"></div>
                                                                 <NavigationMenuLink asChild className="z-20 relative">
                                                                     <Link
-                                                                        href="/"
+                                                                        href="/#features"
                                                                         className="flex h-full w-full select-none flex-col justify-end rounded-lg bg-gradient-to-b from-muted/50 to-muted p-4 no-underline outline-none focus:shadow-md"
                                                                     >
-                                                                        <h6 className="mb-2 mt-4 text-lg font-medium">
-                                                                            All Features
+                                                                        <ShieldCheckIcon className="w-6 h-6 text-violet-500 mb-2" />
+                                                                        <h6 className="mb-2 text-lg font-medium">
+                                                                            {t.features}
                                                                         </h6>
                                                                         <p className="text-sm leading-tight text-muted-foreground">
-                                                                            Manage links, track performance, and more.
+                                                                            {translations[language].features.subtitle}
                                                                         </p>
                                                                     </Link>
                                                                 </NavigationMenuLink>
                                                             </li>
                                                         )}
-                                                        {link.menu.map((menuItem) => (
-                                                            <ListItem
-                                                                key={menuItem.title}
-                                                                title={menuItem.title}
-                                                                href={menuItem.href}
-                                                                icon={menuItem.icon}
-                                                            >
-                                                                {menuItem.tagline}
-                                                            </ListItem>
-                                                        ))}
+                                                        {link.menu.map((menuItem) => {
+                                                            const itemData = t.featureItems[menuItem.titleKey as keyof typeof t.featureItems] as { title: string; tagline: string } | undefined;
+                                                            if (!itemData) return null;
+                                                            return (
+                                                                <ListItem
+                                                                    key={menuItem.titleKey}
+                                                                    title={itemData.title}
+                                                                    href={menuItem.href}
+                                                                    icon={menuItem.icon}
+                                                                >
+                                                                    {itemData.tagline}
+                                                                </ListItem>
+                                                            );
+                                                        })}
                                                     </ul>
                                                 </NavigationMenuContent>
                                             </>
                                         ) : (
                                             <Link href={link.href} legacyBehavior passHref>
                                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                                    {link.title}
+                                                    {link.titleKey === "pricing" ? t.pricing
+                                                        : link.titleKey === "blog" ? t.blog
+                                                            : link.titleKey === "faq" ? t.faq
+                                                                : link.titleKey}
                                                 </NavigationMenuLink>
                                             </Link>
                                         )}
@@ -105,25 +123,27 @@ const Navbar = () => {
                                 ))}
                             </NavigationMenuList>
                         </NavigationMenu>
-
                     </div>
 
-                    <div className="hidden lg:flex items-center gap-x-4">
-                        <Link href="/auth/sign-in" className={buttonVariants({ size: "sm", variant: "ghost" })}>
-                            Sign In
+                    <div className="hidden lg:flex items-center gap-x-2">
+                        <LanguageToggle />
+                        <Link href="/#contact" className={buttonVariants({ size: "sm", variant: "ghost" })}>
+                            {t.signIn}
                         </Link>
-                        <Link href="/auth/sign-up" className={buttonVariants({ size: "sm", })}>
-                            Get Started
-                            <ZapIcon className="size-3.5 ml-1.5 text-orange-500 fill-orange-500" />
+                        <Link href="/#contact" className={buttonVariants({ size: "sm" })}>
+                            {t.getStarted}
                         </Link>
                     </div>
 
-                    <MobileNavbar />
+                    <div className="flex lg:hidden items-center gap-x-2">
+                        <LanguageToggle />
+                        <MobileNavbar />
+                    </div>
 
                 </MaxWidthWrapper>
             </AnimationContainer>
         </header>
-    )
+    );
 };
 
 const ListItem = React.forwardRef<

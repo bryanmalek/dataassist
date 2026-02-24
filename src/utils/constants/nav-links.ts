@@ -1,64 +1,50 @@
-import { HelpCircleIcon, LineChartIcon, Link2Icon, LockIcon, NewspaperIcon, QrCodeIcon } from "lucide-react";
+import { BarChart3Icon, BellIcon, LockIcon, NewspaperIcon, ShieldIcon } from "lucide-react";
 
+// Nav links use English keys; Navbar reads translated titles via useLanguage()
 export const NAV_LINKS = [
     {
-        title: "Features",
-        href: "/features",
+        titleKey: "features" as const,
+        href: "/#features",
         menu: [
             {
-                title: "Link Shortening",
-                tagline: "Shorten links and track their performance.",
-                href: "/features/link-shortening",
-                icon: Link2Icon,
+                titleKey: "darkWeb" as const,
+                href: "/#features",
+                icon: ShieldIcon,
             },
             {
-                title: "Password Protection",
-                tagline: "Secure your links with a password.",
-                href: "/features/password-protection",
+                titleKey: "alerts" as const,
+                href: "/#features",
+                icon: BellIcon,
+            },
+            {
+                titleKey: "identity" as const,
+                href: "/#features",
                 icon: LockIcon,
             },
             {
-                title: "Advanced Analytics",
-                tagline: "Gain insights into who is clicking your links.",
-                href: "/features/analytics",
-                icon: LineChartIcon,
-            },
-            {
-                title: "Custom QR Codes",
-                tagline: "Use QR codes to reach your audience.",
-                href: "/features/qr-codes",
-                icon: QrCodeIcon,
+                titleKey: "score" as const,
+                href: "/#quiz",
+                icon: BarChart3Icon,
             },
         ],
     },
     {
-        title: "Pricing",
-        href: "/pricing",
+        titleKey: "pricing" as const,
+        href: "/#pricing",
     },
     {
-        title: "Enterprise",
-        href: "/enterprise",
-    },
-    {
-        title: "Resources",
-        href: "/resources",
+        titleKey: "blog" as const,
+        href: "/#blog",
         menu: [
             {
-                title: "Blog",
-                tagline: "Read articles on the latest trends in tech.",
-                href: "/resources/blog",
+                titleKey: "blog" as const,
+                href: "/#blog",
                 icon: NewspaperIcon,
             },
-            {
-                title: "Help",
-                tagline: "Get answers to your questions.",
-                href: "/resources/help",
-                icon: HelpCircleIcon,
-            },
-        ]
+        ],
     },
     {
-        title: "Changelog",
-        href: "/changelog",
+        titleKey: "faq" as const,
+        href: "/#faq",
     },
 ];

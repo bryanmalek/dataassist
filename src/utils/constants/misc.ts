@@ -1,4 +1,4 @@
-import { BarChart3Icon, FolderOpenIcon, WandSparklesIcon } from "lucide-react";
+import { DatabaseIcon, SearchIcon, ZapIcon } from "lucide-react";
 
 export const DEFAULT_AVATAR_URL = "https://api.dicebear.com/8.x/initials/svg?backgroundType=gradientLinear&backgroundRotation=0,360&seed=";
 
@@ -28,116 +28,89 @@ export const COMPANIES = [
     {
         name: "Labelbox",
         logo: "/assets/company-06.svg",
-    }
+    },
 ] as const;
 
 export const PROCESS = [
     {
-        title: "Organize Your Links",
-        description: "Efficiently categorize and tag your links for quick access and easy management.",
-        icon: FolderOpenIcon,
+        title: { es: "Registra tus datos", en: "Register your data" },
+        description: {
+            es: "Ingresa los datos que quieres proteger: correos electrónicos, documentos de identidad y números de tarjetas.",
+            en: "Enter the data you want to protect: email addresses, identity documents and card numbers.",
+        },
+        icon: DatabaseIcon,
     },
     {
-        title: "Shorten and Customize",
-        description: "Create concise, branded links that are easy to share and track.",
-        icon: WandSparklesIcon,
+        title: { es: "Monitoreo continuo 24/7", en: "24/7 Continuous Monitoring" },
+        description: {
+            es: "Nuestro sistema escanea la dark y deep web en tiempo real buscando cualquier exposición de tus datos.",
+            en: "Our system scans the dark and deep web in real time looking for any exposure of your data.",
+        },
+        icon: SearchIcon,
     },
     {
-        title: "Analyze and Optimize",
-        description: "Gain insights into link performance and optimize for better engagement.",
-        icon: BarChart3Icon,
-    },
-] as const;
-
-export const FEATURES = [
-    {
-        title: "Link shortening",
-        description: "Create short links that are easy to remember and share.",
-    },
-    {
-        title: "Advanced analytics",
-        description: "Track and measure the performance of your links.",
-    },
-    {
-        title: "Password protection",
-        description: "Secure your links with a password.",
-    },
-    {
-        title: "Custom QR codes",
-        description: "Generate custom QR codes for your links.",
-    },
-    {
-        title: "Link expiration",
-        description: "Set an expiration date for your links.",
-    },
-    {
-        title: "Team collaboration",
-        description: "Share links with your team and collaborate in real-time.",
+        title: { es: "Alerta y acción inmediata", en: "Immediate Alert & Action" },
+        description: {
+            es: "Te notificamos por WhatsApp o email con pasos claros y accionables para resolver el problema.",
+            en: "We notify you via WhatsApp or email with clear, actionable steps to resolve the issue.",
+        },
+        icon: ZapIcon,
     },
 ] as const;
 
 export const REVIEWS = [
     {
-        name: "Michael Smith",
-        username: "@michaelsmith",
-        avatar: "https://randomuser.me/api/portraits/men/1.jpg",
+        name: "Carlos Mendoza",
+        username: "@carlosmendoza",
         rating: 5,
-        review: "This tool is a lifesaver! Managing and tracking my links has never been easier. A must-have for anyone dealing with numerous links."
+        review: "DataAssist me alertó que mi correo estaba en una filtración antes de que yo lo supiera. Pude cambiar mis contraseñas a tiempo y evitar un fraude. Increíble herramienta.",
     },
     {
-        name: "Emily Johnson",
-        username: "@emilyjohnson",
-        avatar: "https://randomuser.me/api/portraits/women/1.jpg",
+        name: "Laura Vásquez",
+        username: "@lauravasquez",
+        rating: 5,
+        review: "Como directora de TI en un banco, DataAssist nos da tranquilidad total. Protegemos los datos de nuestros clientes de forma proactiva y cumplimos con todas las normativas.",
+    },
+    {
+        name: "Roberto Arias",
+        username: "@robertoarias",
         rating: 4,
-        review: "Very useful app! It has streamlined my workflow considerably. A few minor bugs, but overall a great experience."
+        review: "Recibí una alerta por WhatsApp en cuestión de minutos. Los pasos que me dieron para resolver el problema fueron claros y fáciles de seguir. Muy recomendado.",
     },
     {
-        name: "Daniel Williams",
-        username: "@danielwilliams",
-        avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+        name: "María González",
+        username: "@mariagonzalez",
         rating: 5,
-        review: "I've been using this app daily for months. The insights and analytics it provides are invaluable. Highly recommend it!"
+        review: "Pensé que era solo para empresas grandes, pero el plan personal es perfecto para mí. Por fin tengo protección real sin tener que revisar nada manualmente.",
     },
     {
-        name: "Sophia Brown",
-        username: "@sophiabrown",
-        avatar: "https://randomuser.me/api/portraits/women/2.jpg",
+        name: "Andrés Pérez",
+        username: "@andresperez",
+        rating: 5,
+        review: "Mi tarjeta de crédito apareció en la dark web y DataAssist me lo avisó de inmediato. Bloqueé la tarjeta antes de que realizaran cualquier compra fraudulenta.",
+    },
+    {
+        name: "Sofía Ramírez",
+        username: "@sofiaramirez",
         rating: 4,
-        review: "This app is fantastic! It offers everything I need to manage my links efficiently."
+        review: "El cuestionario de seguridad me abrió los ojos. No sabía lo vulnerable que era. Ahora tengo DataAssist monitoreando mis datos y me siento mucho más segura.",
     },
     {
-        name: "James Taylor",
-        username: "@jamestaylor",
-        avatar: "https://randomuser.me/api/portraits/men/3.jpg",
+        name: "Daniel Castro",
+        username: "@danielcastro",
         rating: 5,
-        review: "Absolutely love this app! It's intuitive and feature-rich. Has significantly improved how I manage and track links."
+        review: "Nuestra empresa maneja datos sensibles de miles de clientes. DataAssist nos permite cumplir con las normativas de seguridad y dormir tranquilos por las noches.",
     },
     {
-        name: "Olivia Martinez",
-        username: "@oliviamartinez",
-        avatar: "https://randomuser.me/api/portraits/women/3.jpg",
+        name: "Patricia Morales",
+        username: "@patriciamorales",
+        rating: 5,
+        review: "La mejor inversión en ciberseguridad que he hecho. Simple, efectivo y las alertas llegan exactamente cuando las necesitas. 100% recomendado.",
+    },
+    {
+        name: "Fernando Jiménez",
+        username: "@fernandojimenez",
         rating: 4,
-        review: "Great app with a lot of potential. It has already saved me a lot of time. Looking forward to future updates and improvements."
-    },
-    {
-        name: "William Garcia",
-        username: "@williamgarcia",
-        avatar: "https://randomuser.me/api/portraits/men/4.jpg",
-        rating: 5,
-        review: "This app is a game-changer for link management. It's easy to use, extremely powerful and highly recommended!"
-    },
-    {
-        name: "Mia Rodriguez",
-        username: "@miarodriguez",
-        avatar: "https://randomuser.me/api/portraits/women/4.jpg",
-        rating: 4,
-        review: "I've tried several link management tools, but this one stands out. It's simple, effective."
-    },
-    {
-        name: "Henry Lee",
-        username: "@henrylee",
-        avatar: "https://randomuser.me/api/portraits/men/5.jpg",
-        rating: 5,
-        review: "This app has transformed my workflow. Managing and analyzing links is now a breeze. I can't imagine working without it."
+        review: "Integrar DataAssist a nuestra plataforma bancaria fue sencillo. Nuestros clientes ahora tienen una capa extra de protección que nos diferencia de la competencia.",
     },
 ] as const;

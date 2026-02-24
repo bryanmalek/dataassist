@@ -13,12 +13,16 @@ import {
     SheetContent,
     SheetTrigger
 } from "@/components/ui/sheet";
+import { useLanguage } from "@/hooks/use-language";
 import { cn, NAV_LINKS } from "@/utils";
+import { translations } from "@/utils/constants/translations";
 import { LucideIcon, Menu, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from 'react';
 
 const MobileNavbar = () => {
+    const { language } = useLanguage();
+    const t = translations[language].nav;
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -42,34 +46,40 @@ const MobileNavbar = () => {
                     </SheetClose>
                     <div className="flex flex-col items-start w-full py-2 mt-10">
                         <div className="flex items-center justify-evenly w-full space-x-2">
-                            <Link href="/auth/sign-in" className={buttonVariants({ variant: "outline", className: "w-full" })}>
-                                Sign In
+                            <Link href="/#contact" onClick={handleClose} className={buttonVariants({ variant: "outline", className: "w-full" })}>
+                                {t.signIn}
                             </Link>
-                            <Link href="/auth/sign-up" className={buttonVariants({ className: "w-full" })}>
-                                Sign Up
+                            <Link href="/#contact" onClick={handleClose} className={buttonVariants({ className: "w-full" })}>
+                                {t.getStarted}
                             </Link>
                         </div>
                         <ul className="flex flex-col items-start w-full mt-6">
                             <Accordion type="single" collapsible className="!w-full">
                                 {NAV_LINKS.map((link) => (
-                                    <AccordionItem key={link.title} value={link.title} className="last:border-none">
+                                    <AccordionItem key={link.titleKey} value={link.titleKey} className="last:border-none">
                                         {link.menu ? (
                                             <>
                                                 <AccordionTrigger>
-                                                    {link.title}
+                                                    {link.titleKey === "features" ? t.features
+                                                        : link.titleKey === "blog" ? t.blog
+                                                            : t.faq}
                                                 </AccordionTrigger>
                                                 <AccordionContent>
-                                                    <ul
-                                                        onClick={handleClose}
-                                                        className={cn(
-                                                            "w-full",
-                                                        )}
-                                                    >
-                                                        {link.menu.map((menuItem) => (
-                                                            <ListItem key={menuItem.title} title={menuItem.title} href={menuItem.href} icon={menuItem.icon}>
-                                                                {menuItem.tagline}
-                                                            </ListItem>
-                                                        ))}
+                                                    <ul onClick={handleClose} className={cn("w-full")}>
+                                                        {link.menu.map((menuItem) => {
+                                                            const itemData = t.featureItems[menuItem.titleKey as keyof typeof t.featureItems] as { title: string; tagline: string } | undefined;
+                                                            if (!itemData) return null;
+                                                            return (
+                                                                <ListItem
+                                                                    key={menuItem.titleKey}
+                                                                    title={itemData.title}
+                                                                    href={menuItem.href}
+                                                                    icon={menuItem.icon}
+                                                                >
+                                                                    {itemData.tagline}
+                                                                </ListItem>
+                                                            );
+                                                        })}
                                                     </ul>
                                                 </AccordionContent>
                                             </>
@@ -79,7 +89,12 @@ const MobileNavbar = () => {
                                                 onClick={handleClose}
                                                 className="flex items-center w-full py-4 font-medium text-muted-foreground hover:text-foreground"
                                             >
-                                                <span>{link.title}</span>
+                                                <span>
+                                                    {link.titleKey === "pricing" ? t.pricing
+                                                        : link.titleKey === "blog" ? t.blog
+                                                            : link.titleKey === "faq" ? t.faq
+                                                                : link.titleKey}
+                                                </span>
                                             </Link>
                                         )}
                                     </AccordionItem>
@@ -90,7 +105,7 @@ const MobileNavbar = () => {
                 </SheetContent>
             </Sheet>
         </div>
-    )
+    );
 };
 
 const ListItem = React.forwardRef<
@@ -119,8 +134,8 @@ const ListItem = React.forwardRef<
                 </p>
             </Link>
         </li>
-    )
-})
-ListItem.displayName = "ListItem"
+    );
+});
+ListItem.displayName = "ListItem";
 
-export default MobileNavbar
+export default MobileNavbar;

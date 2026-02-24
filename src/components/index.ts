@@ -13,6 +13,9 @@ import Providers from "./providers/providers";
 // pricing
 import PricingCards from "./pricing-cards";
 
+// security quiz
+import SecurityQuiz from "./security-quiz";
+
 // blog
 import Blogs from "./blog/blogs";
 
@@ -27,6 +30,7 @@ export {
     Providers,
 
     PricingCards,
+    SecurityQuiz,
 
     Blogs,
 };

@@ -1,91 +1,109 @@
 import { buttonVariants } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { cn } from "@/utils";
-import { ArrowRightIcon, CalendarIcon, Link2Icon, SearchIcon, WaypointsIcon } from "lucide-react";
+import { ArrowRightIcon, BarChart3Icon, BellIcon, LockIcon, ShieldIcon } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card";
-import { Input } from "./input";
-import { Integrations } from "./integrations";
-import { Label } from "./label";
 
 export const CARDS = [
     {
-        Icon: Link2Icon,
-        name: "Shorten links",
-        description: "Create short links that are easy to remember and share.",
-        href: "#",
+        Icon: ShieldIcon,
+        name: "Dark Web Monitoring",
+        description: "We continuously scan the dark and deep web to detect your exposed data before it's too late.",
+        href: "/#features",
         cta: "Learn more",
         className: "col-span-3 lg:col-span-1",
         background: (
-            <Card className="absolute top-10 left-10 origin-top rounded-none rounded-tl-md transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_100%)] group-hover:scale-105 border border-border border-r-0">
-                <CardHeader>
-                    <CardTitle>
-                        Create short links
-                    </CardTitle>
-                    <CardDescription>
-                        Create short links that are easy to remember and share.
-                    </CardDescription>
-                </CardHeader>
-                <CardContent className="-mt-4">
-                    <Label>
-                        Paste your link
-                    </Label>
-                    <Input
-                        type="text"
-                        placeholder="Paste your link here..."
-                        className="w-full focus-visible:ring-0 focus-visible:ring-transparent"
-                    />
-                </CardContent>
-            </Card>
+            <div className="absolute top-8 left-6 right-6 origin-top rounded-lg border border-border bg-black/60 p-3 font-mono text-xs transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_100%)] group-hover:scale-105">
+                <div className="text-neutral-500 mb-1">$ scanning darkweb...</div>
+                <div className="text-red-400 flex items-center gap-1">
+                    <span className="inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                    BREACH: user@email.com
+                </div>
+                <div className="text-red-400 flex items-center gap-1 mt-0.5">
+                    <span className="inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                    BREACH: 4***1234
+                </div>
+                <div className="text-yellow-400 mt-0.5">! source: darkforum.onion</div>
+                <div className="text-green-400 mt-1">✓ Alert dispatched</div>
+            </div>
         ),
     },
     {
-        Icon: SearchIcon,
-        name: "Search your links",
-        description: "Quickly find the links you need with AI-powered search.",
-        href: "#",
+        Icon: BellIcon,
+        name: "Real-Time Alerts",
+        description: "Receive instant notifications via WhatsApp or email with actionable steps when a breach is detected.",
+        href: "/#features",
         cta: "Learn more",
         className: "col-span-3 lg:col-span-2",
         background: (
-            <Command className="absolute right-10 top-10 w-[70%] origin-to translate-x-0 border border-border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:-translate-x-10 p-2">
-                <Input placeholder="Type to search..." />
-                <div className="mt-1 cursor-pointer">
-                    <div className="px-4 py-2 hover:bg-muted rounded-md">linkify.io/hdf00c</div>
-                    <div className="px-4 py-2 hover:bg-muted rounded-md">linkify.io/sdv0n0</div>
-                    <div className="px-4 py-2 hover:bg-muted rounded-md">linkify.io/03gndo</div>
-                    <div className="px-4 py-2 hover:bg-muted rounded-md">linkify.io/09vmmw</div>
-                    <div className="px-4 py-2 hover:bg-muted rounded-md">linkify.io/s09vws</div>
-                    <div className="px-4 py-2 hover:bg-muted rounded-md">linkify.io/sd8fv5</div>
+            <div className="absolute right-10 top-8 w-56 origin-top-right transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)] group-hover:-translate-x-2 group-hover:-translate-y-1">
+                <div className="rounded-2xl border border-neutral-700 bg-neutral-900 p-3 shadow-xl">
+                    <div className="flex items-center gap-2 mb-2">
+                        <div className="w-7 h-7 rounded-full bg-violet-600 flex items-center justify-center text-xs text-white font-bold">DA</div>
+                        <div>
+                            <div className="text-xs text-neutral-200 font-medium">DataAssist</div>
+                            <div className="text-[10px] text-neutral-500">ahora mismo</div>
+                        </div>
+                    </div>
+                    <p className="text-xs text-neutral-300 leading-relaxed">
+                        ⚠️ Brecha detectada. Tu correo fue encontrado en una filtración. Toca para ver los pasos.
+                    </p>
                 </div>
-            </Command>
+                <div className="mt-2 rounded-2xl border border-neutral-700 bg-neutral-900/60 p-3 shadow-xl opacity-70">
+                    <div className="flex items-center gap-2 mb-1">
+                        <div className="w-7 h-7 rounded-full bg-green-600 flex items-center justify-center text-xs text-white font-bold">W</div>
+                        <div className="text-xs text-neutral-200 font-medium">WhatsApp</div>
+                    </div>
+                    <p className="text-xs text-neutral-400">DataAssist: Acción requerida — ve a dataassist.io</p>
+                </div>
+            </div>
         ),
     },
     {
-        Icon: WaypointsIcon,
-        name: "Connect your apps",
-        description: "Integrate with your favorite apps and services.",
-        href: "#",
+        Icon: LockIcon,
+        name: "Identity Protection",
+        description: "Monitor emails, card numbers and identity documents to prevent fraud and identity theft.",
+        href: "/#features",
         cta: "Learn more",
-        className: "col-span-3 lg:col-span-2 max-w-full overflow-hidden",
+        className: "col-span-3 lg:col-span-2",
         background: (
-            <Integrations className="absolute right-2 pl-28 md:pl-0 top-4 h-[300px] w-[600px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+            <div className="absolute right-4 top-6 grid grid-cols-2 gap-2 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105">
+                {[
+                    { label: "Email", color: "text-green-400", checked: true },
+                    { label: "DNI/ID", color: "text-green-400", checked: true },
+                    { label: "Tarjeta", color: "text-green-400", checked: true },
+                    { label: "Teléfono", color: "text-green-400", checked: true },
+                    { label: "Pasaporte", color: "text-yellow-400", checked: false },
+                    { label: "Contraseña", color: "text-green-400", checked: true },
+                ].map((item) => (
+                    <div key={item.label} className="flex items-center gap-1.5 bg-neutral-900 border border-neutral-700 rounded-lg px-2 py-1.5">
+                        <span className={cn("text-xs", item.color)}>{item.checked ? "✓" : "!"}</span>
+                        <span className="text-xs text-neutral-300">{item.label}</span>
+                    </div>
+                ))}
+            </div>
         ),
     },
     {
-        Icon: CalendarIcon,
-        name: "Calendar",
-        description: "Keep track of your links with our calendar view.",
+        Icon: BarChart3Icon,
+        name: "Security Score",
+        description: "Evaluate your digital habits and get personalized recommendations to improve your security posture.",
         className: "col-span-3 lg:col-span-1",
-        href: "#",
-        cta: "Learn more",
+        href: "/#quiz",
+        cta: "Take quiz",
         background: (
-            <Calendar
-                mode="single"
-                selected={new Date(2022, 4, 11, 0, 0, 0)}
-                className="absolute right-0 top-10 origin-top rounded-md border border-border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-105"
-            />
+            <div className="absolute right-4 top-6 text-center transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_100%)] group-hover:scale-105 px-4">
+                <div className="text-6xl font-bold text-violet-400">78</div>
+                <div className="text-xs text-neutral-400 mt-0.5">/ 100</div>
+                <div className="text-xs text-yellow-400 mt-2 font-medium">Riesgo Moderado</div>
+                <div className="mt-3 w-full bg-neutral-800 rounded-full h-2">
+                    <div className="bg-gradient-to-r from-yellow-500 to-violet-500 h-2 rounded-full" style={{ width: "78%" }}></div>
+                </div>
+                <div className="mt-3 space-y-1 text-left">
+                    <div className="text-[10px] text-neutral-500">▶ Activa 2FA en más cuentas</div>
+                    <div className="text-[10px] text-neutral-500">▶ Cambia contraseñas antiguas</div>
+                </div>
+            </div>
         ),
     },
 ];
