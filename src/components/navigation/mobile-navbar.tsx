@@ -46,9 +46,6 @@ const MobileNavbar = () => {
                     </SheetClose>
                     <div className="flex flex-col items-start w-full py-2 mt-10">
                         <div className="flex items-center justify-evenly w-full space-x-2">
-                            <Link href="/#contact" onClick={handleClose} className={buttonVariants({ variant: "outline", className: "w-full" })}>
-                                {t.signIn}
-                            </Link>
                             <Link href="/#contact" onClick={handleClose} className={buttonVariants({ className: "w-full" })}>
                                 {t.getStarted}
                             </Link>
@@ -90,10 +87,7 @@ const MobileNavbar = () => {
                                                 className="flex items-center w-full py-4 font-medium text-muted-foreground hover:text-foreground"
                                             >
                                                 <span>
-                                                    {link.titleKey === "pricing" ? t.pricing
-                                                        : link.titleKey === "blog" ? t.blog
-                                                            : link.titleKey === "faq" ? t.faq
-                                                                : link.titleKey}
+                                                    {link.titleKey === "pricing" ? t.pricing : t.faq}
                                                 </span>
                                             </Link>
                                         )}

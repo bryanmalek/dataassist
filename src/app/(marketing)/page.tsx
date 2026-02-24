@@ -66,7 +66,8 @@ const HomePage = () => {
                             </Button>
                         </div>
                     </AnimationContainer>
-
+                    
+                    {/* IMAGEN CENTRAL DE HOME 
                     <AnimationContainer delay={0.2} className="relative pt-20 pb-20 md:py-32 px-2 bg-transparent w-full">
                         <div className="absolute md:top-[10%] left-1/2 gradient w-3/4 -translate-x-1/2 h-1/4 md:h-1/3 inset-0 blur-[5rem] animate-image-glow"></div>
                         <div className="-m-2 rounded-xl p-2 ring-1 ring-inset ring-foreground/20 lg:-m-4 lg:rounded-2xl bg-opacity-50 backdrop-blur-3xl">
@@ -83,6 +84,8 @@ const HomePage = () => {
                             <div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-background z-50"></div>
                         </div>
                     </AnimationContainer>
+                    */}
+                    
                 </div>
             </MaxWidthWrapper>
 
@@ -354,9 +357,11 @@ const HomePage = () => {
                                 {t.cta.subtitle}
                             </p>
                             <div className="mt-6">
-                                <Button size="lg">
-                                    {t.cta.btn}
-                                    <ArrowRightIcon className="w-4 h-4 ml-2" />
+                                <Button size="lg" asChild>
+                                    <a href="https://web.whatsapp.com/send?phone=50767971870" target="_blank" rel="noopener noreferrer">
+                                        {t.cta.btn}
+                                        <ArrowRightIcon className="w-4 h-4 ml-2" />
+                                    </a>
                                 </Button>
                             </div>
                         </div>

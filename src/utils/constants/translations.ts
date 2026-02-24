@@ -13,7 +13,6 @@ export const translations = {
             pricing: "Precios",
             blog: "Blog",
             faq: "FAQ",
-            signIn: "Iniciar Sesión",
             getStarted: "Comenzar",
         },
         hero: {
@@ -120,7 +119,7 @@ export const translations = {
                     title: "¿Qué es la dark web y por qué deberías protegerte?",
                     description: "Una guía completa sobre la dark web, cómo funciona y cómo tus datos personales pueden terminar allí sin que lo sepas.",
                     category: "Guía",
-                    image: "/assets/blog-01.jpg",
+                    image: "/assets/blog1.webp",
                 },
                 {
                     slug: "senales-datos-comprometidos",
@@ -210,7 +209,6 @@ export const translations = {
             pricing: "Pricing",
             blog: "Blog",
             faq: "FAQ",
-            signIn: "Sign In",
             getStarted: "Get Started",
         },
         hero: {

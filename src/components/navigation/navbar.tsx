@@ -112,10 +112,7 @@ const Navbar = () => {
                                         ) : (
                                             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                                                 <Link href={link.href}>
-                                                    {link.titleKey === "pricing" ? t.pricing
-                                                        : link.titleKey === "blog" ? t.blog
-                                                            : link.titleKey === "faq" ? t.faq
-                                                                : link.titleKey}
+                                                    {link.titleKey === "pricing" ? t.pricing : t.faq}
                                                 </Link>
                                             </NavigationMenuLink>
                                         )}
@@ -127,9 +124,6 @@ const Navbar = () => {
 
                     <div className="hidden lg:flex items-center gap-x-2">
                         <LanguageToggle />
-                        <Link href="/#contact" className={buttonVariants({ size: "sm", variant: "ghost" })}>
-                            {t.signIn}
-                        </Link>
                         <Link href="/#contact" className={buttonVariants({ size: "sm" })}>
                             {t.getStarted}
                         </Link>
