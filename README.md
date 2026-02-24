@@ -7,7 +7,7 @@
 
 
 ## 🌟 Introduction
-Linkify is an innovative link management software designed to help you shorten, track, and optimize your links effortlessly. Built with React, Node.js, and MongoDB, Linkify provides powerful analytics and user-friendly features to enhance your link-sharing experience.
+Linkify is a static landing page for a link management platform. Built with Next.js and Tailwind CSS.
 
 ## 🚀 Features
 
@@ -20,10 +20,6 @@ Linkify is an innovative link management software designed to help you shorten, 
 
 Check out the live demo of Linkify here: [Live Preview](http://Linkify-demo.vercel.app)
 
-## 🎥 Watch Demo on YouTube
-
-Check out the tutorial to see how this link management system was built: [Watch the Tutorial](https://youtu.be/3_sZPAfVR_U) 💻 
-
 ## 💻 Tech Stack
 
 * Next.js
@@ -31,9 +27,6 @@ Check out the tutorial to see how this link management system was built: [Watch 
 * Shadcn UI
 * Magic UI
 * Aceternity UI
-* Prisma
-* MongoDB
-* Clerk
 * React Hook Form
 
 ## 🛠️ Installation
@@ -45,30 +38,12 @@ To run Linkify locally, follow these steps:
     ```
 2. Install dependencies:
     ```bash
-    npm install
+    pnpm install
     ```
-3. Set up environment variables in a `.env` file:
-    ```
-   # app
-    NEXT_PUBLIC_APP_DOMAIN=
-    NEXT_PUBLIC_APP_NAME=
-
-    # clerk
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-    CLERK_SECRET_KEY=
-
-    # database
-    DATABASE_URL=
-    ```
-
-4. Run the development server:
+3. Run the development server:
     ```bash
-    npm run dev
+    pnpm dev
     ```
-
-## ☕ Buy Me a Coffee
-If you enjoy using Linkify, consider supporting my work!  
-[Buy Me a Coffee ☕](https://buymeacoffee.com/shreyas29)
 
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
