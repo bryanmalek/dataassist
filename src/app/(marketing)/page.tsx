@@ -30,7 +30,7 @@ const HomePage = () => {
         <div className="overflow-x-hidden scrollbar-hide size-full">
 
             {/* Hero Section */}
-            <MaxWidthWrapper>
+            <MaxWidthWrapper id="home">
                 <div className="flex flex-col items-center justify-center w-full text-center bg-gradient-to-t from-background">
                     <AnimationContainer className="flex flex-col items-center justify-center w-full text-center">
                         <button className="group relative grid overflow-hidden rounded-full px-4 py-1 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200">

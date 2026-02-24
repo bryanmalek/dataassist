@@ -106,13 +106,7 @@ export const translations = {
         pricing: {
             badge: "Planes",
             title: "Elige el plan que necesitas",
-            subtitle: "Protege tu identidad digital con planes accesibles para personas y empresas.",
-            monthly: "Mensual",
-            yearly: "Anual",
-            discount: "-15%",
-            free: "",
-            perMonth: "/mes",
-            perYear: "/año",
+            subtitle: "Protege tu identidad digital con monitoreo continuo de la dark y deep web.",
         },
         blog: {
             badge: "Blog & Recursos",
@@ -309,13 +303,7 @@ export const translations = {
         pricing: {
             badge: "Pricing",
             title: "Choose the plan you need",
-            subtitle: "Protect your digital identity with affordable plans for individuals and businesses.",
-            monthly: "Monthly",
-            yearly: "Yearly",
-            discount: "-15%",
-            free: "",
-            perMonth: "/month",
-            perYear: "/year",
+            subtitle: "Protect your digital identity with continuous dark and deep web monitoring.",
         },
         blog: {
             badge: "Blog & Resources",

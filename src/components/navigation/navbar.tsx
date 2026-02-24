@@ -110,14 +110,14 @@ const Navbar = () => {
                                                 </NavigationMenuContent>
                                             </>
                                         ) : (
-                                            <Link href={link.href} legacyBehavior passHref>
-                                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                                <Link href={link.href}>
                                                     {link.titleKey === "pricing" ? t.pricing
                                                         : link.titleKey === "blog" ? t.blog
                                                             : link.titleKey === "faq" ? t.faq
                                                                 : link.titleKey}
-                                                </NavigationMenuLink>
-                                            </Link>
+                                                </Link>
+                                            </NavigationMenuLink>
                                         )}
                                     </NavigationMenuItem>
                                 ))}
